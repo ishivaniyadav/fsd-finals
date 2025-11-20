@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>Chats</h2>
+        <button id="switchAccount">Switch Account</button>
+      </div>
+      <div id="userList" class="user-list"></div>
+    </div>
+    <!-- Chat Window -->
+    <div class="chat">
+      <div class="chat-header">
+        <span id="chatUserName">Select a user</span>
+        <span id="chatStatus"></span>
+      </div>
+      <div id="chatMessages" class="chat-messages"></div>
+      <div id="typingIndicator" class="typing-indicator"></div>
+      <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

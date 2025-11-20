@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Myntra Products</title>
+  <link rel="stylesheet" href="myntra.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="product.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="myntra.html"><img class="myntrahome" src="images/myntra_logo.webp" alt="Myntra Home"></a>
+    </div>
+
+    <nav class="navbar">
+      <a href="myntra.html#men">Men</a>
+      <a href="myntra.html#women">Women</a>
+      <a href="myntra.html#kid">Kids</a>
+      <a href="myntra.html#home-living">Home & Living</a>
+      <a href="myntra.html#footwear">Footwear</a>
+      <a href="myntra.html#studio">Studio <sup>New</sup></a>
+    </nav>
+
+    <div class="search-bar">
+      <span class="material-symbols-outlined search-icon">search</span>
+      <input class="search-input" placeholder="Search for products">
+    </div>
+
+    <div class="acttion">
+      <div class="acttion-container">
+        <span class="material-symbols-outlined action-icon">person</span>
+        <span class="action-name">Profile</span>
+      </div>
+
+      <div class="acttion-container" onclick="window.location.href='wishlist.html'">
+        <span class="material-symbols-outlined action-icon">favorite</span>
+        <span class="action-name">Wishlist</span>
+        <span id="wishlist-count" class="count-badge">0</span>
+        </div>
+
+        <div class="acttion-container" onclick="window.location.href='bag.html'">
+        <span class="material-symbols-outlined action-icon">shopping_bag</span>
+        <span class="action-name">Bag</span>
+        <span id="bag-count" class="count-badge">0</span>
+        </div>
+
+    </div>
+  </header>
+
+  <section class="product-section">
+    <div class="product-card" data-id="1" data-name="Men's Casual Shirt" data-price="999" data-image="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2024/NOVEMBER/9/c9PTzIvv_d2d5c96f234544af804be609ccbcae54.jpg">
+      <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2024/NOVEMBER/9/c9PTzIvv_d2d5c96f234544af804be609ccbcae54.jpg" alt="Men Shirt">
+      <h3>Men's Casual Shirt</h3>
+      <p>₹999</p>
+      <div class="buttons">
+        <button class="wishlist-btn">Wishlist</button>
+        <button class="bag-btn">Add to Bag</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="2" data-name="Women's Kurta" data-price="1299" data-image="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/27950524/2024/2/29/21d77116-a47b-43d8-a69d-073fc26e55451709207862807SangriaOrangeBitaliyanZariSequenceEmbroideredKurtaWithPantAn1.jpg">
+      <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/27950524/2024/2/29/21d77116-a47b-43d8-a69d-073fc26e55451709207862807SangriaOrangeBitaliyanZariSequenceEmbroideredKurtaWithPantAn1.jpg" alt="Kurta">
+      <h3>Women's Kurta</h3>
+      <p>₹1299</p>
+      <div class="buttons">
+        <button class="wishlist-btn">Wishlist</button>
+        <button class="bag-btn">Add to Bag</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="3" data-name="Kids T-Shirt" data-price="599" data-image="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2025/AUGUST/9/BkuFPzpA_355bb9d6e9304e509c28c803fc3cc35c.jpg">
+      <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2025/AUGUST/9/BkuFPzpA_355bb9d6e9304e509c28c803fc3cc35c.jpg" alt="Kids T-Shirt">
+      <h3>Kids T-Shirt</h3>
+      <p>₹599</p>
+      <div class="buttons">
+        <button class="wishlist-btn">Wishlist</button>
+        <button class="bag-btn">Add to Bag</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

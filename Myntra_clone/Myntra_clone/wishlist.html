@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Wishlist | Myntra Clone</title>
+  <link rel="stylesheet" href="myntra.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="myntra.html"><img class="myntrahome" src="images/myntra_logo.webp" alt="Myntra Home"></a>
+    </div>
+
+    <nav class="navbar">
+      <a href="myntra.html#men">Men</a>
+      <a href="myntra.html#women">Women</a>
+      <a href="myntra.html#kid">Kids</a>
+      <a href="myntra.html#home-living">Home & Living</a>
+      <a href="myntra.html#footwear">Footwear</a>
+      <a href="myntra.html#studio">Studio <sup>New</sup></a>
+    </nav>
+
+    <div class="acttion">
+      <div class="acttion-container">
+        <span class="material-symbols-outlined action-icon">person</span>
+        <span class="action-name">Profile</span>
+      </div>
+
+      <div class="acttion-container" onclick="window.location.href='wishlist.html'">
+        <span class="material-symbols-outlined action-icon">favorite</span>
+        <span class="action-name">Wishlist</span>
+        <span id="wishlist-count" class="count-badge">0</span>
+        </div>
+
+        <div class="acttion-container" onclick="window.location.href='bag.html'">
+        <span class="material-symbols-outlined action-icon">shopping_bag</span>
+        <span class="action-name">Bag</span>
+        <span id="bag-count" class="count-badge">0</span>
+        </div>
+
+    </div>
+  </header>
+
+  <main class="wishlist-container">
+    <div id="wishlist-items" class="product-section"></div>
+  </main>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const wishlistContainer = document.getElementById("wishlist-items");
+  const wishlistCount = document.getElementById("wishlist-count");
+  const bagCount = document.getElementById("bag-count");
+
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  let bag = JSON.parse(localStorage.getItem("bag")) || [];
+
+  updateCounts();
+  renderWishlist();
+
+  function renderWishlist() {
+    wishlistContainer.innerHTML = "";
+
+    if (wishlist.length === 0) {
+      wishlistContainer.innerHTML = "<p style='text-align:center;'>No items in wishlist 🥺</p>";
+      return;
+    }
+
+    wishlist.forEach((item, index) => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <p>₹${item.price}</p>
+        <div class="buttons">
+          <button class="bag-btn" data-id="${item.id}">Add to Bag</button>
+          <button class="remove-btn" data-index="${index}">Remove</button>
+        </div>
+      `;
+      wishlistContainer.appendChild(card);
+    });
+
+    document.querySelectorAll(".bag-btn").forEach(btn =>
+      btn.addEventListener("click", addToBag)
+    );
+
+    document.querySelectorAll(".remove-btn").forEach(btn =>
+      btn.addEventListener("click", removeFromWishlist)
+    );
+  }
+
+  function addToBag(e) {
+    const id = e.target.dataset.id;
+    const product = wishlist.find(p => p.id === id);
+
+    if (!bag.some(item => item.id === product.id)) {
+      bag.push(product);
+      localStorage.setItem("bag", JSON.stringify(bag));
+      showPopup(`${product.name} added to bag`);
+      updateCounts();
+    } else {
+      showPopup(`${product.name} is already in bag!`);
+    }
+  }
+
+  function removeFromWishlist(e) {
+    const index = e.target.dataset.index;
+    const productName = wishlist[index].name;
+    wishlist.splice(index, 1);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    renderWishlist();
+    updateCounts();
+    showPopup(`${productName} removed from wishlist`);
+  }
+
+  function updateCounts() {
+    wishlistCount.textContent = wishlist.length;
+    bagCount.textContent = bag.length;
+  }
+
+  function showPopup(message) {
+    const popup = document.createElement("div");
+    popup.textContent = message;
+    popup.className = "popup-message";
+    document.body.appendChild(popup);
+    setTimeout(() => popup.remove(), 2500);
+  }
+});
+
+</script>
+</body>
+
+</html>
