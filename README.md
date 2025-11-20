@@ -8,6 +8,6 @@ https://github.com/ShubhamShuklaX/Auth-WebApp
 
 https://github.com/anuj-bhakat/e-commerce-backend
 
-
+mongodb+srv://ishivaniyadav7:vanishi21@cluster0.aakk45m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 📌Run and learn!
